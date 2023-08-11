@@ -416,9 +416,9 @@
                         <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block">
                             <nav>
                                 <ul>
-                                    <li><a class="active" href="index.html">Home </a></li>
+                                    <li><a class="active" href="/">Home </a></li>
                                     <li><a href="about.html">About</a></li>
-                                    <li><a href="shop.html">Shop</a></li>
+                                    <li><a href="{{ route('shop') }}">Shop</a></li>
                                     <li class="position-static"><a href="#">Our Collections <i
                                                 class="fi-rs-angle-down"></i></a>
                                         <ul class="mega-menu">
@@ -590,7 +590,7 @@
         <div class="mobile-header-wrapper-inner">
             <div class="mobile-header-top">
                 <div class="mobile-header-logo">
-                    <a href="index.html"><img src="{{asset('assets/imgs/logo/logo.png')}}" alt="logo"></a>
+                    <a href="/"><img src="{{asset('assets/imgs/logo/logo.png')}}" alt="logo"></a>
                 </div>
                 <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
                     <button class="close-style search-close">
@@ -747,7 +747,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="widget-about font-md mb-md-5 mb-lg-0">
                             <div class="logo logo-width-1 wow fadeIn animated">
-                                <a href="index.html"><img src="{{asset('assets/imgs/logo/logo.png')}}" alt="logo"></a>
+                                <a href="/"><img src="{{asset('assets/imgs/logo/logo.png')}}" alt="logo"></a>
                             </div>
                             <h5 class="mt-20 mb-10 fw-600 text-grey-4 wow fadeIn animated">Contact</h5>
                             <p class="wow fadeIn animated">
@@ -836,29 +836,30 @@
         </div>
     </footer>
     <!-- Vendor JS-->
-    <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
-    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
-    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/plugins/slick.js"></script>
-    <script src="assets/js/plugins/jquery.syotimer.min.js"></script>
-    <script src="assets/js/plugins/wow.js"></script>
-    <script src="assets/js/plugins/jquery-ui.js"></script>
-    <script src="assets/js/plugins/perfect-scrollbar.js"></script>
-    <script src="assets/js/plugins/magnific-popup.js"></script>
-    <script src="assets/js/plugins/select2.min.js"></script>
-    <script src="assets/js/plugins/waypoints.js"></script>
-    <script src="assets/js/plugins/counterup.js"></script>
-    <script src="assets/js/plugins/jquery.countdown.min.js"></script>
-    <script src="assets/js/plugins/images-loaded.js"></script>
-    <script src="assets/js/plugins/isotope.js"></script>
-    <script src="assets/js/plugins/scrollup.js"></script>
-    <script src="assets/js/plugins/jquery.vticker-min.js"></script>
-    <script src="assets/js/plugins/jquery.theia.sticky.js"></script>
-    <script src="assets/js/plugins/jquery.elevatezoom.js"></script>
+    {{-- jangan lupa ditmebah juka --}}
+    <script src="{{ asset('assets/js/vendor/modernizr-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('assets/js/vendor/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('assets/js/vendor/jquery-migrate-3.3.0.min.js') }}"></script>
+    <script src="{{ asset('assets/js/vendor/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/slick.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/jquery.syotimer.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/wow.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/jquery-ui.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/perfect-scrollbar.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/magnific-popup.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/select2.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/waypoints.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/counterup.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/jquery.countdown.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/images-loaded.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/isotope.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/scrollup.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/jquery.vticker-min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/jquery.theia.sticky.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/jquery.elevatezoom.js') }}"></script>
     <!-- Template  JS -->
-    <script src="assets/js/main.js?v=3.3"></script>
-    <script src="assets/js/shop.js?v=3.3"></script>
+    <script src="{{ asset('assets/js/main.js?v=3.3') }}"></script>
+    <script src="{{ asset('assets/js/shop.js?v=3.3') }}"></script>
     @livewireScripts
 </body>
 
