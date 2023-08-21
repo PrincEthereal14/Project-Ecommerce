@@ -7,14 +7,6 @@
         nav .hidden{
             display: block;
         }
-        /* ttg wishlisted */
-        .wishlisted{
-            background-color:rgb(255, 51, 0) !important;
-            border: 1px solid transparent !important;
-        }
-        .wishlisted i{
-            color: #ffffff !important;
-        }
     </style>
 <main class="main">
     <div class="page-header breadcrumb-wrap">
@@ -32,7 +24,7 @@
                     <div class="shop-product-fillter">
                         <div class="totall-product">
                             {{-- total() => keknya emang method yang menunjukan jumlah total --}}
-                            <p> We found <strong class="text-brand">{{ $products->total() }}</strong> items for you!</p>
+                            <p> We found <strong class="text-brand">{{ $products->total() }}</strong> items for you form <strong class="text-brand">{{ $category_name}} </strong> !</p>
                         </div>
                         <div class="sort-by-product-area">
                             <div class="sort-by-cover mr-10">
@@ -77,10 +69,6 @@
                         </div>
                     </div>
                     <div class="row product-grid-3">
-                        @php
-                        // pluck method mengambil semua nilai untuk kunci yang diberikan:
-                            $witems = Cart::instance('wishlist')->content()->pluck('id');
-                        @endphp
                         @foreach ($products as $product)
                         <div class="col-lg-4 col-md-4 col-6 col-sm-6">
                             <div class="product-cart-wrap mb-30">
@@ -118,14 +106,7 @@
                                         {{-- <span class="old-price">$245.8</span> --}}
                                     </div>
                                     <div class="product-action-1 show">
-                                        @if ($witems->contains($product->id))
-                                        {{-- ada wishlisted nya  --}}
-                                        <a aria-label="Remove To Wishlist" class="action-btn hover-up wishlisted" href="#" wire:click.prevent="removeFromWishlist({{ $product->id }})"><i class="fi-rs-heart"></i></a>  
-                                        @else
-                                        {{-- logo cinta di produk --}}
-                                        <a aria-label="Add To Wishlist" class="action-btn hover-up" href="#" wire:click.prevent="addToWishlist({{ $product->id }},'{{ $product->name }}','{{ $product->regular_price }}')"><i class="fi-rs-heart"></i></a>
                                         {{-- pakai js wireclick --}}
-                                        @endif
                                         <a aria-label="Add To Cart" class="action-btn hover-up" href="#"
                                         {{--wire:click.prevent => bawaan livewire , prevent	Equivalent of event.preventDefault(), wire:click="doSomething">Do Something  --}}
                                         {{-- fungsi store (parameter) --}}
@@ -166,11 +147,10 @@
                         </div>
                         <div class="price-filter">
                             <div class="price-filter-inner">
-                                {{-- wire.ignore = Memerintahkan Livewire untuk tidak memperbarui elemen atau turunannya saat memperbarui DOM dari permintaan server. Berguna saat menggunakan pustaka JavaScript pihak ketiga dalam komponen Livewire --}}
-                                <div id="slider-range" wire:ignore></div>
+                                <div id="slider-range"></div>
                                 <div class="price_slider_amount">
                                     <div class="label-input">
-                                        <span>Range:</span> <span class="text-info">{{ $min_value }}</span> - <span class="text-info">{{ $max_value }}</span>
+                                        <span>Range:</span><input type="text" id="amount" name="price" placeholder="Add Your Price">
                                     </div>
                                 </div>
                             </div>
@@ -260,25 +240,3 @@
     </section>
 </main>
 </div>
-
-@push('scripts')
-    <script>
-        var sliderrange = $('#slider-range');
-    var amountprice = $('#amount');
-    $(function() {
-        sliderrange.slider({
-            range: true,
-            min: 0,
-            max: 1000,
-            values: [0, 1000],
-            slide: function(event, ui) {
-                // amountprice.val("$" + ui.values[0] + " - $" + ui.values[1]);
-                @this.set('min_value',ui.values[0]);
-                @this.set('max_value',ui.values[1]);
-            }
-        });
-        // amountprice.val("$" + sliderrange.slider("values", 0) +
-        //     " - $" + sliderrange.slider("values", 1));
-    }); 
-    </script>
-@endpush

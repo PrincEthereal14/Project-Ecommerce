@@ -89,65 +89,15 @@
                         <a href="index.html"><img src="{{asset('assets/imgs/logo/logo.png')}}" alt="logo"></a>
                     </div>
                     <div class="header-right">
-                        <div class="search-style-1">
-                            <form action="#">
-                                <input type="text" placeholder="Search for items...">
-                            </form>
-                        </div>
+                        
+                        @livewire('header-search-component')
                         <div class="header-action-right">
                             <div class="header-action-2">
-                                <div class="header-action-icon-2">
-                                    <a href="shop-wishlist.php">
-                                        <img class="svgInject" alt="Surfside Media"
-                                            src="{{asset('assets/imgs/theme/icons/icon-heart.svg')}}">
-                                        <span class="pro-count blue">4</span>
-                                    </a>
-                                </div>
-                                <div class="header-action-icon-2">
-                                    <a class="mini-cart-icon" href="cart.html">
-                                        <img alt="Surfside Media" src="{{asset('assets/imgs/theme/icons/icon-cart.svg')}}">
-                                        <span class="pro-count blue">2</span>
-                                    </a>
-                                    <div class="cart-dropdown-wrap cart-dropdown-hm2">
-                                        <ul>
-                                            <li>
-                                                <div class="shopping-cart-img">
-                                                    <a href="product-details.html"><img alt="Surfside Media"
-                                                            src="assets/imgs/shop/thumbnail-3.jpg"></a>
-                                                </div>
-                                                <div class="shopping-cart-title">
-                                                    <h4><a href="product-details.html">Daisy Casual Bag</a></h4>
-                                                    <h4><span>1 × </span>$800.00</h4>
-                                                </div>
-                                                <div class="shopping-cart-delete">
-                                                    <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="shopping-cart-img">
-                                                    <a href="product-details.html"><img alt="Surfside Media"
-                                                            src="assets/imgs/shop/thumbnail-2.jpg"></a>
-                                                </div>
-                                                <div class="shopping-cart-title">
-                                                    <h4><a href="product-details.html">Corduroy Shirts</a></h4>
-                                                    <h4><span>1 × </span>$3200.00</h4>
-                                                </div>
-                                                <div class="shopping-cart-delete">
-                                                    <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <div class="shopping-cart-footer">
-                                            <div class="shopping-cart-total">
-                                                <h4>Total <span>$4000.00</span></h4>
-                                            </div>
-                                            <div class="shopping-cart-button">
-                                                <a href="cart.html" class="outline">View cart</a>
-                                                <a href="checkout.html">Checkout</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                {{--wishlisticon component  --}}
+                                @livewire('wishlist-icon-component')
+                                {{-- CartIconComponent --}}
+                                {{-- kaya include --}}
+                                @livewire('cart-icon-component')
                             </div>
                         </div>
                     </div>
@@ -861,6 +811,7 @@
     <script src="{{ asset('assets/js/main.js?v=3.3') }}"></script>
     <script src="{{ asset('assets/js/shop.js?v=3.3') }}"></script>
     @livewireScripts
+    @stack('scripts')
 </body>
 
 </html>

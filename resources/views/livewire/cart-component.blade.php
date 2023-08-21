@@ -21,7 +21,8 @@
                                 </div>
                             @endif
                             {{-- If you want to know how many items there are in your cart, you can use the count() method. This method will return the total number of items in the cart. So if you've added 2 books and 1 shirt, it will return 3 items. --}}
-                            @if (Cart::count() > 0)
+                            @if (Cart::instance('cart')->count() > 0)
+                            {{-- (Cart::count() => menunjukan jumlah yang ada di keranjang --}}
                                 {{-- jika di kerangajang ada barang lebih dari satu yang akan ditampilkan adalah ini  --}}
                                 <table class="table shopping-summery text-center clean">
                                     <thead>
@@ -37,7 +38,7 @@
                                     <tbody>
 
                                         {{-- Of course you also want to get the carts content. This is where you'll use the content method. This method will return a Collection of CartItems which you can iterate over and show the content to your customers. --}}
-                                        @foreach (Cart::content() as $item)
+                                        @foreach (Cart::instance('cart')->content() as $item)
                                             {{-- Now, when iterating over the content of the cart, you can access the model. --}}
                                             <tr>
                                                 <td class="image product-thumbnail"><img
